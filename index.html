@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guión Maestro</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            line-height: 1.6; 
+        }
+        pre { 
+            background: #f4f4f4; 
+            padding: 15px; 
+            border-radius: 5px; 
+            white-space: pre-wrap; 
+        }
+    </style>
+</head>
+<body>
+    <h1>📋 Guión Maestro</h1>
+    <div id="content">Cargando contenido...</div>
+    
+    <script>
+        fetch('guion-maestro.txt')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('content').innerHTML = '<pre>' + text + '</pre>';
+            })
+            .catch(error => {
+                document.getElementById('content').innerHTML = '<p>Error cargando el documento.</p>';
+            });
+    </script>
+</body>
+</html>
